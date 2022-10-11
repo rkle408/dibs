@@ -1,6 +1,10 @@
 # dibs
 
-Do you ever feel like you have so much junk in your home BUT you just can't bring yourself to throw it away? Conversely, do you ever want anything but just can't justify spending your hard-earned money on it? We have an application for you! 
+Do you ever feel like you have so much junk in your home BUT you just can't bring yourself to throw it away? Conversely, do you ever want anything but just can't justify spending your hard-earned money on it? We have an application for you! Utilize our application to find people in your vicinity that want to take your junk OR to get items that are treasures, all for free... the only caveat? You have to get DIBS on the item, and you only have an hour to pick it up, otherwise, other people can call dibs on it! (But keep in mind, you can only call dibs on 8 items at a time!)
+
+Our application helps solve a major issue of trash contributing to climate change! Instead of buying and throwing away, you can give it to someone else to keep using! It will help to build community; what a better way to get to know your neighbors than to help each other out? It also helps to mitigate buyer's remorse!
+
+What we learned is that communication amongst team members is critical! We learned that we have different skill sets and together, we can make a great application with everyone's contributions. We reinforced that we should ask each other questions, that we have so much to learn from each other, and that it only makes us better coders.
 
 ## Table of Contents
 
@@ -44,6 +48,7 @@ node server.js
 
 ## Resources
 
+- <b>Bootstrap</b>. <https://getbootstrap.com/>. Date accessed: October 11, 2022.
 - <b>npm</b>. <https://www.npmjs.com/>. Date accessed: October 11, 2022.
 
 ## License
