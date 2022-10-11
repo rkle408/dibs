@@ -39,7 +39,7 @@ You will possibly need to add your own MySQL password in to initiate MySQL in a 
 ````
 DB_NAME='dibs_db'
 DB_USER='*YOUR USERNAME*'
-DB_PASSWORD='*YOUR PASSWORD*'</i>
+DB_PASSWORD='*YOUR PASSWORD*'
 ````
 Open Integrated Terminal, run command:
 ````
