@@ -27,6 +27,8 @@ Ideas for future development include making a trade feature vs. just individuall
 
 -[Walkthrough-Video](#walkthrough-video)
 
+-[Deploy-Application](#deploy-application)
+
 -[Features](#features)
 
 ## Installation
@@ -70,6 +72,10 @@ node server.js
 This project is licensed under the terms of the MIT license.
 
 ## Walkthrough Video
+
+<>
+
+## Deploy Application
 
 <>
 
