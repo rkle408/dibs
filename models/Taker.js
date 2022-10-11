@@ -51,7 +51,7 @@ Taker.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true, 
-        modelName: 'Takers'       
+        modelName: 'Taker'       
     }
 )
 
