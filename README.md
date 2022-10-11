@@ -39,7 +39,7 @@ You will possibly need to add your own MySQL password in to initiate MySQL in a 
 ````
 DB_NAME='dibs_db'
 DB_USER='*YOUR USERNAME*'
-DB_PASSWORD='*YOUR PASSWORD*'</i>
+DB_PASSWORD='*YOUR PASSWORD*'
 ````
 Open Integrated Terminal, run command:
 ````
@@ -60,11 +60,13 @@ node server.js
 ## Resources
 
 - <b>Bootstrap</b>. <https://getbootstrap.com/>. Date accessed: October 11, 2022.
+- <b>MDBGO</b>. <https://mdbootstrap.com/docs/standard/extended/login/>. Date accessed: October 11, 2022.
 - <b>npm</b>. <https://www.npmjs.com/>. Date accessed: October 11, 2022.
 
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 This project is licensed under the terms of the MIT license.
 
 ## Walkthrough Video
