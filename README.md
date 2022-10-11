@@ -57,6 +57,7 @@ Open Integrated Terminal, run command:
 ## Resources
 
 - <b>Bootstrap</b>. <https://getbootstrap.com/>. Date accessed: October 11, 2022.
+- <b>MDBGO</b>. <https://mdbootstrap.com/docs/standard/extended/login/>. Date accessed: October 11, 2022.
 - <b>npm</b>. <https://www.npmjs.com/>. Date accessed: October 11, 2022.
 
 ## License
