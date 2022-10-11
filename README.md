@@ -1,11 +1,14 @@
 # Dibs
-
+### About Dibs
 Do you ever feel like you have so much junk in your home BUT you just can't bring yourself to throw it away? Conversely, do you ever want anything but just can't justify spending your hard-earned money on it? We have an application for you! Utilize our application to find people in your vicinity that want to take your junk OR to get items that are treasures, all for free... the only caveat? You have to get DIBS on the item, and you only have an hour to pick it up, otherwise, other people can call dibs on it! (But keep in mind, you can only call dibs on 8 items at a time!)
 
+### Helping the World
 Our application helps solve a major issue of trash contributing to climate change! Instead of buying and throwing away, you can give it to someone else to keep using! It will help to build community; what a better way to get to know your neighbors than to help each other out? It also helps to mitigate buyer's remorse!
 
+### What We Learned from the Project
 What we learned is that communication amongst team members is critical! We learned that we have different skill sets and together, we can make a great application with everyone's contributions. We reinforced that we should ask each other questions, that we have so much to learn from each other, and that it only makes us better coders. We learned that while our initial idea was <i>brilliant</i>, we need to focus on functionality first! As we get a functioning front-end and back-end, we can then focus on making our application better.
 
+### Future Development
 Ideas for future development include making a trade feature vs. just individually giving and taking items, adding a messaging feature, button to display your accrued treasures, a mobile app (maybe even utilizing a map or GPS feature).
 
 ## Table of Contents
@@ -27,21 +30,21 @@ Ideas for future development include making a trade feature vs. just individuall
 -[Features](#features)
 
 ## Installation
-
-<i>npm i bcrypt body-parser connect-session-sequelize dotenv express express-handlebars express-session mysql2 sequelize</i>
-
+````
+npm i bcrypt body-parser connect-session-sequelize dotenv express express-handlebars express-session mysql2 sequelize
+````
 ## Usage
 
 You will possibly need to add your own MySQL password in to initiate MySQL in a .env file:
-
-<i>DB_NAME='dibs_db'
+````
+DB_NAME='dibs_db'
 DB_USER='*YOUR USERNAME*'
 DB_PASSWORD='*YOUR PASSWORD*'</i>
-
+````
 Open Integrated Terminal, run command:
-
-<i>node server.js</i>
-
+````
+node server.js
+````
 ### Screenshots
 
 
