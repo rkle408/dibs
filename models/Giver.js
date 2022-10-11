@@ -38,7 +38,7 @@ Giver.init(
     {
         hooks: {
             beforeCreate: async(newUserData) => {
-                //newUserData.username = newUserData.username.toLowerCase()
+                
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
             }, 
