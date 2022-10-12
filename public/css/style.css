@@ -36,3 +36,9 @@ height: 100%;
     background-image: url("https://img.freepik.com/free-vector/giant-octopus-swim-water-ocean-vector-cartoon-illustration-underwater-sea-landscape-with-marine-animal-with-tentacles-suckers-ocean-bottom-with-seaweed-stones-purple-squid_107791-11722.jpg?w=2000&t=st=1665599902~exp=1665600502~hmac=5ad63e652585c99971a135bdee7dd2b69dd5a5a70f337d60781817343ef3fdd3");
     background-repeat: no-repeat;
   }
+
+  .profile-style {
+    padding: 40px;
+    margin-bottom: 30px;
+    background-color: #5c53d430 !important;
+  }
