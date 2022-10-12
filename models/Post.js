@@ -14,14 +14,14 @@ Post.init(
         giver_id: {
             type: DataTypes.INTEGER,
             references: {
-            model: 'givers',
+            model: 'Giver',
             key: 'id'
                      }
         },
         item_id: {
             type: DataTypes.INTEGER,
             references: {
-            model: 'item',
+            model: 'Item',
             key: 'id'
                      }
         }

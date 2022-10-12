@@ -26,7 +26,7 @@ Item.init(
         giver_id: {
             type: DataTypes.INTEGER,
             references: {
-            model: 'givers',
+            model: 'Giver',
             key: 'id'
                      }
         },
@@ -40,5 +40,5 @@ Item.init(
     }
 )
 
-module.exports = Post
+module.exports = Item;
 
