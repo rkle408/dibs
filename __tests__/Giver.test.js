@@ -4,6 +4,7 @@ const Giver = require('../models/Giver');
 test('Checks for null values', async () => {
     const user1 = {};
   
+    // We require that username, email, password be NOT NULL
     const user2 = {
       username: 'test',
       email: 'test@gmail.com',
@@ -18,6 +19,7 @@ test('Checks for null values', async () => {
   });
 
 test('Checks for short passwords', async () => {
+    // We require password be AT LEAST 4 characters long
     const user1 = {
         username: 'test',
         email: 'test@gmail.com',
@@ -27,7 +29,7 @@ test('Checks for short passwords', async () => {
       const user2 = {
         username: 'test',
         email: 'test@test.com',
-        password: 'password123',
+        password: 'pass',
       };
     
       const newUser1 = Giver.build(user1);
