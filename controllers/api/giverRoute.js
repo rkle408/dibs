@@ -1,21 +1,25 @@
-// const router = require('express').Router();
-// const { Giver } = require('../../models')
+const router = require('express').Router();
+const { Giver } = require('../../models')
 
-// router.post('/', async (req, res) => {
-//     try {
-//         const newUser = Giver.create({
-//             username: req.body.username,
-//             password: req.body.password
-//         })
+router.post('/', async (req, res) => {
+    try {
+        const newUser = Giver.create({
+            username: req.body.username,
+            password: req.body.password
+        })
+        console.log(username);
+        console.log(password);
 
-//         req.session.save(() => {
-//             req.session.user_id = newUser.id;
-//             req.session.username = newUser.username;
-//             req.session.logged_in = true;
+        req.session.save(() => {
+            req.session.user_id = newUser.id;
+            req.session.username = newUser.username;
+            req.session.logged_in = true;
 
-//             res.json(newUser);
-//         })
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// })
+            res.json(newUser);
+        })
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
+module.exports = router;
