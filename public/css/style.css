@@ -46,4 +46,20 @@ height: 100%;
   .octo-cursor {
       cursor:url('../assets/images/hover.PNG') 20 20, pointer;
     }
-  
+    .new-post {
+      border: none;
+      margin-top: 30px;
+      background-color: #6029bc;
+      color: white;
+    }
+    .new-post:hover {
+      background-color:#420886;
+      transition: 0.7s;
+  }
+   
+    .new-post-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-content: space-around;
+    }
