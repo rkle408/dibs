@@ -42,3 +42,8 @@ height: 100%;
     margin-bottom: 30px;
     background-color: #5c53d430 !important;
   }
+ 
+  .octo-cursor {
+      cursor:url('../assets/images/hover.PNG') 20 20, pointer;
+    }
+  
