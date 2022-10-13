@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Giver, Taker, Post, Item } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // Get all posts and JOIN with item and giver data
     const postData = await Post.findAll({
@@ -31,8 +31,27 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GETTING LOGIN PAGE
+router.get('/login', (req, res) => {
+  // If the giver is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/homepage');
+    return;
+  }
 
-// // Use withAuth middleware to prevent access to route
+  res.render('loginpage');
+});
+
+// GETTING SIGNUP PAGE
+router.get('/signup', (req, res) => {
+  if(req.session.logged_in) {
+      res.redirect('/dashboard');
+      return;
+  } else {
+      res.render('signup');
+  }
+})
+
 // router.get('/profile', withAuth, async (req, res) => {
 //   try {
 //     // Find the logged in giver based on the session ID
@@ -52,14 +71,6 @@ router.get('/', async (req, res) => {
 //   }
 // });
 
-// router.get('/login', (req, res) => {
-//   // If the giver is already logged in, redirect the request to another route
-//   if (req.session.logged_in) {
-//     res.redirect('/homepage');
-//     return;
-//   }
 
-//   res.render('loginpage');
-// });
 
 module.exports = router;
