@@ -59,7 +59,7 @@ quit
 Open Integrated Terminal at server.js level, run command:
 ````
 node seeds/seed.js
-```
+````
 Then:
 ````
 node server.js
