@@ -8,17 +8,20 @@ Item.init(
     {
         id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
         name: {
             type: DataTypes.STRING,
+            allowNull: false,
             validate: {
                 len: [1]
             }
         },
         description: {
             type: DataTypes.STRING,
+            allowNull: false,
             validate: {
                 len: [1]
             }
