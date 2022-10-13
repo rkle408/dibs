@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Item } = require('../../models');
+const { Post } = require('../../models');
 
 // CREATE NEW POST
 router.post('/', async (req, res) => {
@@ -34,5 +34,28 @@ router.get('/', async (req, res) => {
 })
 
 // FIND ONE POST
+
+
+// DELETE POST
+router.delete('/:id', async (req, res) => {
+  try {
+    console.log("Test");
+    const postData = await Post.destroy({
+      where: {
+        giver_id: req.body.giver_id,
+        item_id: req.body.item_id
+      },
+    });
+    console.log("Testing");
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with this id!' });
+      return;
+    }
+
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
