@@ -33,7 +33,7 @@ Ideas for future development include making a trade feature vs. just individuall
 
 ## Installation
 ````
-npm i bcrypt body-parser connect-session-sequelize dotenv express express-handlebars express-session mysql2 sequelize
+npm i bcrypt body-parser connect-session-sequelize dotenv express express-handlebars express-session jest mysql2 sequelize
 ````
 ## Usage
 
@@ -43,10 +43,28 @@ DB_NAME='dibs_db'
 DB_USER='*YOUR USERNAME*'
 DB_PASSWORD='*YOUR PASSWORD*'
 ````
-Open Integrated Terminal, run command:
+Open Integrated Terminal at schema.sql level, run command:
+````
+mysql -u root -p
+````
+Enter your password, then:
+````
+source schema.sql
+````
+Once loaded, run:
+````
+quit
+````
+
+Open Integrated Terminal at server.js level, run command:
+````
+node seeds/seed.js
+````
+Then:
 ````
 node server.js
 ````
+
 ### Screenshots
 
 
@@ -61,9 +79,11 @@ node server.js
 
 ## Resources
 
+- Scharf, Michael. Teaching assistant. Guidance given during class time. October 10-14, 2022.
 - <b>Bootstrap</b>. <https://getbootstrap.com/>. Date accessed: October 11, 2022.
 - <b>MDBGO</b>. <https://mdbootstrap.com/docs/standard/extended/login/>. Date accessed: October 11, 2022.
 - <b>npm</b>. <https://www.npmjs.com/>. Date accessed: October 11, 2022.
+- "Giant octopus swim under water..." Image by upklyak on Freepik. <https://www.freepik.com/free-vector/giant-octopus-swim-water-ocean-vector-cartoon-illustration-underwater-sea-landscape-with-marine-animal-with-tentacles-suckers-ocean-bottom-with-seaweed-stones-purple-squid_25917780.htm>. Date accessed: October 11, 2022.
 
 ## License
 
@@ -82,3 +102,14 @@ This project is licensed under the terms of the MIT license.
 ## Features
 
 Our application will allow you to make a username and password, and that will allow you access to be a "giver" and a "taker." As a giver, you can make posts to feature your items to give away, and as a taker, you can view posts and call dibs on up to 8 items at a time.
+
+## Tests
+
+To ensure our application is functioning, we wrote a test to ensure that credentials for our "Giver" cannot be left blank, i.e., username, email, password MUST have values. Our test also ensures that the password length is at minimum, 4 characters long.
+
+To run this test, ensure you have installed Jest as previously mentioned in [Installation](#installation), open Integrated Terminal at server.js level, and run command:
+````
+npm run test
+````
+
+You should see green "passed" tests. If you alter the password lengths in the Giver.test.js file or erase a username, password, or email, then run the test, you will see that it will fail.
