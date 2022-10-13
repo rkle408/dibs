@@ -22,10 +22,12 @@ Item.belongsTo(Giver, {
     foreignKey: 'giver_id'
 })
 Post.hasOne(Item,{
-    foreignKey: 'item_id'
+    foreignKey: 'item_id',
+    onDelete: 'SET NULL'
 })
 Item.belongsTo(Post,{
-    foreignKey: 'item_id'
+    foreignKey: 'item_id',
+    onDelete: 'SET NULL'
 })
 
 

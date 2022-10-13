@@ -42,8 +42,7 @@ router.delete('/:id', async (req, res) => {
     console.log("Test");
     const postData = await Post.destroy({
       where: {
-        giver_id: req.body.giver_id,
-        item_id: req.body.item_id
+        id: req.params.id
       },
     });
     console.log("Testing");
