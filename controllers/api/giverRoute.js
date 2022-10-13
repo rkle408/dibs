@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const Giver = require('../../models/Giver');
+const { Giver } = require('../../models');
+const bcrypt = require('bcrypt')
 
 // CREATE NEW USER
 router.post('/', async (req, res) => {
@@ -24,9 +25,9 @@ router.post('/', async (req, res) => {
 });
 
 // FIND ALL GIVERS
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const findAll = Giver.findAll({
+        const findAll = await Giver.findAll({
             attributes: { exclude: ['password'] }
         })
 
@@ -49,7 +50,7 @@ router.post('/login', async (req, res) => {
           return;
         }
     
-        const validPassword = await userData.checkPassword(req.body.password);
+        const validPassword = await bcrypt.compare(req.body.password, userData.password);
     
         if (!validPassword) {
           res
