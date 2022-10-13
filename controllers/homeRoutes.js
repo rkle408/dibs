@@ -31,26 +31,26 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// GETTING LOGIN PAGE
-router.get('/login', (req, res) => {
-  // If the giver is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/homepage');
-    return;
-  }
+// // GETTING LOGIN PAGE
+// router.get('/login', (req, res) => {
+//   // If the giver is already logged in, redirect the request to another route
+//   if (req.session.logged_in) {
+//     res.redirect('/homepage');
+//     return;
+//   }
 
-  res.render('loginpage');
-});
+//   res.render('loginpage');
+// });
 
-// GETTING SIGNUP PAGE
-router.get('/signup', (req, res) => {
-  if(req.session.logged_in) {
-      res.redirect('/dashboard');
-      return;
-  } else {
-      res.render('signup');
-  }
-})
+// // GETTING SIGNUP PAGE
+// router.get('/signup', (req, res) => {
+//   if(req.session.logged_in) {
+//       res.redirect('/dashboard');
+//       return;
+//   } else {
+//       res.render('signup');
+//   }
+// })
 
 // router.get('/profile', withAuth, async (req, res) => {
 //   try {
