@@ -1,36 +1,31 @@
 const sequelize = require('../config/connection');
-const { Giver, Taker, Post, Item } = require('../models');
+const { Giver, Post, Item } = require('../models');
 
 const giverData = require('./giverData.json');
-const takerData = require('./takerData.json');
+// const takerData = require('./takerData.json');
 const postData = require('./postData.json');
 const itemData = require('./itemData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  // bul creates giver constant
+  // bulk creates giver constant
   const giver = await Giver.bulkCreate(giverData, {
     individualHooks: true,
     returning: true,
   });
 
-  // assigns giver id
-  for (const Post of postData) {
-    await Post.create({
-      ...post,
-      giver_id: giver[Math.floor(Math.random() * giver.length)].id,
-    });
-  }
-
   // bulk create item constant
-
-  
-  // assign item id
+  const item = await Item.bulkCreate(itemData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   // bulk create post
-
-  // reference giver id and item id
+  const post = await Post.bulkCreate(postData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   process.exit(0);
 };
