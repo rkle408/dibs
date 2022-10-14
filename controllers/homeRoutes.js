@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Giver, Post, Item } = require('../models');
 const withAuth = require('../utils/auth');
+const path = require("path");
+
 
 router.get('/', async(req, res) => { 
   console.log("hi");
@@ -14,8 +16,12 @@ router.get('/', async(req, res) => {
         },
         {
           model: Item,
-          attributes: ['name']
+          attributes: ['name', 'description']
+        },
+        {model: Image,
+        attributes:['data']
         }
+
       ],
     });
 
@@ -95,6 +101,7 @@ router.get('/profile', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 
 
