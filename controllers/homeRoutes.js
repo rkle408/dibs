@@ -18,10 +18,6 @@ router.get('/', async(req, res) => {
           model: Item,
           attributes: ['name', 'description']
         },
-        {model: Image,
-        attributes:['data']
-        }
-
       ],
     });
 
