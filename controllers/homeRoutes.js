@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Giver, Post, Item } = require('../models');
 const withAuth = require('../utils/auth');
+const path = require("path");
+
 
 router.get('/', async (req, res) => {
   try {
@@ -14,7 +16,11 @@ router.get('/', async (req, res) => {
         {
           model: Item,
           attributes: ['name', 'description']
+        },
+        {model: Image,
+        attributes:['data']
         }
+
       ],
     });
 
@@ -70,6 +76,7 @@ router.get('/', async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
+
 
 
 
