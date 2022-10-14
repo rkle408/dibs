@@ -44,10 +44,10 @@ router.post('/', async (req, res) => {
           name: req.body.name,
           // add image here!(:
           description: req.body.description,
-          giver_id: req.body.giver_id,
+          // giver_id: req.body.giver_id,
       })
       console.log("Created Item");
-      console.log(req.body.giver_id);
+      // console.log(req.body.giver_id);
 
       res.status(200).json(newItem);
   } catch (err) {

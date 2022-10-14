@@ -2,7 +2,8 @@ const router = require('express').Router();
 const { Giver, Post, Item } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', async(req, res) => { 
+  console.log("hi");
   try {
     // Get all posts and JOIN with item and giver data
     const postData = await Post.findAll({
@@ -13,17 +14,31 @@ router.get('/', async (req, res) => {
         },
         {
           model: Item,
-          attributes: ['name', 'description']
+          attributes: ['name']
         }
       ],
     });
 
+    // SELECT * FROM ITEM;
+    const itemData = await Item.findAll();
+    // Sequelize accent not in JSON 
+    // Sequelize => JSON  
+    // items = []
+    // for(let index = 0; index < itemData.length; index++){
+    //   items.push(itemData[index].get({ plain: tr}))
+    // }
+    const items = itemData.map((item) => item.get({ plain: true }));
+    
+    console.log(items);
+
+
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
-
+    //console.log(posts);
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       posts, 
+      items,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
