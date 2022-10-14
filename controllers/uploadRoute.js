@@ -1,16 +1,37 @@
 const router = require('express').Router();
 const fs = require("fs");
-const {Image} = require("../models");
-const { upload} = require("")
+const { Item } = require("../models");
+const multer  = require('multer')
 
+var fileName = ""
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/upload')
+  },
+  filename: function (req, file, cb) {
+    fileName = `${file.originalname.replace(".png", "")}-${Date.now()}.png`
+    cb(null, fileName )
+  }
+})
+var upload = multer({ storage: storage })
 
-router.post('/', upload.single('file'), async (req, res) => {
+router.post('/:itemID', upload.single('file'), async (req, res) => {
+  console.log(upload)
   try {
     console.log(req.file);
 
     if (req.file == undefined) {
       return res.send(`You must select a file.`);
     }
+
+    const response = await Item.update(
+      { image_url : `${req.file.destination}/${fileName}`  },
+      { where: { id: req.params.itemID} } 
+    );
+
+    res.status(200).json(response);
+
+
 
     // Image.create({
     //   type: req.file.mimetype,
