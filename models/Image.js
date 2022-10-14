@@ -6,12 +6,6 @@ class Image extends Model {}
 
 Image.init(
     {
-        type: {
-            type: DataTypes.STRING,
-          },
-          name: {
-            type: DataTypes.STRING,
-          },
           img_url: {
             type: DataTypes.STRING,
           },
@@ -20,7 +14,7 @@ Image.init(
             references: {
                 model: 'Item',
                 key: 'id'
-                         }
+            }
           }
         },
   
