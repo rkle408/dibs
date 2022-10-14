@@ -3,9 +3,9 @@ const bcrypt = require("bcrypt");
 const sequelize = require('../config/connection');
 
 class Giver extends Model {
-    checkPassword(loginPassword) {
-        return bcrypt.compareSync(loginPassword, this.password)
-    }
+    // checkPassword(loginPassword) {
+    //     return bcrypt.compareSync(loginPassword, this.password)
+    // }
 }
 
 Giver.init(

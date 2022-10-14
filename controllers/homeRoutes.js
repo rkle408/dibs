@@ -31,45 +31,55 @@ router.get('/', async (req, res) => {
   }
 });
 
-// // GETTING LOGIN PAGE
-// router.get('/login', (req, res) => {
-//   // If the giver is already logged in, redirect the request to another route
-//   if (req.session.logged_in) {
-//     res.redirect('/homepage');
-//     return;
-//   }
+// GETTING LOGIN PAGE
+router.get('/login', (req, res) => {
+  // If the giver is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
 
-//   res.render('loginpage');
-// });
+  res.render('loginpage');
+});
 
-// // GETTING SIGNUP PAGE
-// router.get('/signup', (req, res) => {
-//   if(req.session.logged_in) {
-//       res.redirect('/dashboard');
-//       return;
-//   } else {
-//       res.render('signup');
-//   }
-// })
+router.get('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.render('homepage');
+    });
+  } else {
+    res.render('homepage');
+  }
+});
 
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in giver based on the session ID
-//     const giverData = await Giver.findByPk(req.session.giver_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Post }],
-//     });
+// GETTING SIGNUP PAGE
+router.get('/signup', (req, res) => {
+  if(req.session.logged_in) {
+      res.redirect('/dashboard');
+      return;
+  } else {
+      res.render('signup');
+  }
+})
 
-//     const giver = giverData.get({ plain: true });
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged in giver based on the session ID
+    const giverData = await Giver.findByPk(req.session.giver_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Post }],
+    });
 
-//     res.render('profile', {
-//       ...giver,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    const giver = giverData.get({ plain: true });
+
+    res.render('profile', {
+      ...giver,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 
