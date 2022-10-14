@@ -5,7 +5,6 @@ const newItemHandler = async (event) => {
   const itemDescription = document.querySelector('#item-descr').value.trim();
   console.log(itemName, itemDescription);
 
-  alert("Hello");
   const response = await fetch('/api/item', {
     method: 'POST',
     body: JSON.stringify({ name: itemName, description: itemDescription }),
@@ -13,6 +12,7 @@ const newItemHandler = async (event) => {
   });
   console.log(response);
 
+  // This will allow window to automatically refresh when we post new item
   window.location.reload();
 }
 
