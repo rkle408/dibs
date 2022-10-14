@@ -26,6 +26,10 @@ Item.init(
                 len: [1]
             }
         },
+        image_url: {
+            type: DataTypes.STRING,
+            defaultValue: ""
+        },
         giver_id: {
             type: DataTypes.INTEGER,
             references: {
