@@ -13,7 +13,7 @@ const newItemHandler = async (event) => {
   });
   console.log(response);
 
-  
+  window.location.reload();
 }
 
 document.getElementById('new-post-submit')
