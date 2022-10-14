@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { Giver, Taker, Post, Item } = require('../models');
+const { Giver, Post, Item } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with item and giver data
     const postData = await Post.findAll({

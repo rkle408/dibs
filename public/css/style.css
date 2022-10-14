@@ -49,11 +49,11 @@ height: 100%;
     .new-post {
       border: none;
       margin-top: 30px;
-      background-color: #6029bc;
-      color: white;
+      background-color: #6029bc !important;
+      color: white !important;
     }
     .new-post:hover {
-      background-color:#420886;
+      background-color:#420886 !important;
       transition: 0.7s;
   }
    
@@ -62,4 +62,23 @@ height: 100%;
       flex-direction: row;
       justify-content: center;
       align-content: space-around;
+    }
+
+    .modal-content {
+      background-color: #926cd3f4 !important;
+      color: white !important;
+    }
+
+    .modal-max-width{
+      max-width: 200px;
+    }
+
+    #new-post-submit {
+      background-color: #ad29bc !important;
+      margin-left: 5px !important;
+    }
+
+    #item-name,
+    #item-descr {
+      border-radius: 5px;
     }
