@@ -19,6 +19,8 @@ router.post('/', async (req, res) => {
   }
 });
 
+
+
 // FIND ALL POSTS
 router.get('/', async (req, res) => {
   console.log('Hello');

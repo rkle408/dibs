@@ -2,6 +2,7 @@ const Taker = require('./Taker');
 const Giver = require('./Giver');
 const Post = require('./Post');
 const Item = require('./Item');
+const Image = require('./Image');
 
 
 Giver.hasMany(Post, {
@@ -29,12 +30,20 @@ Item.belongsTo(Post,{
     foreignKey: 'item_id',
     onDelete: 'SET NULL'
 })
-
+Item.hasOne(Image,{
+    foreignKey: 'item_id',
+    onDelete:'CASCADE'
+})
+Image.belongsTo(Item,{
+    foreignKey: 'item_id',
+    onDelete:'CASCADE'
+})
 
 
 module.exports = {
     Taker,
     Giver,
     Post,
-    Item
+    Item,
+    Image
 };
