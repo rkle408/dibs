@@ -39,12 +39,13 @@ router.get('/:id', async (req, res) => {
 // POST ALL ITEMS
 router.post('/', async (req, res) => {
   try {
-    console.log("Hello Item"); 
+    console.log("This is the request!")
+    console.log(req.body.giver_id); 
     const newItem = await Item.create({
           name: req.body.name,
           // add image here!(:
           description: req.body.description,
-          // giver_id: req.body.giver_id,
+          giver_id: req.body.giver_id,
       })
       console.log("Created Item");
       // console.log(req.body.giver_id);
