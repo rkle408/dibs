@@ -62,10 +62,10 @@ router.get('/login', (req, res) => {
 router.get('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.render('homepage');
+      res.render('loginpage');
     });
   } else {
-    res.render('homepage');
+    res.render('loginpage', { logged_in: false });
   }
 });
 
@@ -91,7 +91,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...giver,
-      logged_in: true
+      logged_in: true, 
     });
   } catch (err) {
     res.status(500).json(err);
