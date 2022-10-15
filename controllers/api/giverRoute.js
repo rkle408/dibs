@@ -3,12 +3,13 @@ const { Giver } = require('../../models');
 const bcrypt = require('bcrypt')
 
 // CREATE NEW USER
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const newUser = await Giver.create({
-            email: req.body.email,
             username: req.body.username,
+            email: req.body.email,
             password: req.body.password
+            
         })
         console.log(req.body.username);
         console.log(req.body.password);
@@ -20,7 +21,7 @@ router.post('/', async (req, res) => {
 
             res.json(newUser);
         })
-        
+        console.log('new giver created');
     } catch (err) {
         res.status(400).json(err);
     }

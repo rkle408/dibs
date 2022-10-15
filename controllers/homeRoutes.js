@@ -72,7 +72,7 @@ router.get('/logout', (req, res) => {
 // GETTING SIGNUP PAGE
 router.get('/signup', (req, res) => {
   if(req.session.logged_in) {
-      res.redirect('/dashboard');
+      res.redirect('/');
       return;
   } else {
       res.render('signup');
