@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 const path = require("path");
 
 
-router.get('/', async(req, res) => { 
+router.get('/', withAuth, async(req, res) => { 
   console.log("hi");
   try {
     // Get all posts and JOIN with item and giver data
