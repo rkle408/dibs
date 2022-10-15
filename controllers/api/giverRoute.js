@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 router.post('/', async (req, res) => {
     try {
         const newUser = await Giver.create({
+            email: req.body.email,
             username: req.body.username,
             password: req.body.password
         })
@@ -19,6 +20,7 @@ router.post('/', async (req, res) => {
 
             res.json(newUser);
         })
+        
     } catch (err) {
         res.status(400).json(err);
     }
@@ -58,14 +60,17 @@ router.post('/login', async (req, res) => {
           .json({ message: 'Incorrect username or password, please try again' });
         return;
       }
-  
+      console.log("this is the user that logged in")
+      console.log(userData.id)
       req.session.save(() => {
+        req.session.username = userData.username;
         req.session.user_id = userData.id;
         req.session.logged_in = true;
-        
         res.json({ user: userData, message: 'You are now logged in!' });
       });
-  
+      
+      console.log("This is the user id from session")
+      console.log(req.session.user_id)
     } catch (err) {
       res.status(400).json(err);
     }
