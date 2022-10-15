@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post,Item } = require('../../models');
 
 // CREATE NEW POST
 router.post('/', async (req, res) => {
   try {
     console.log("Hello Post"); 
     const newPost = await Post.create({
-          giver_id: req.body.giver_id,
+          giver_id: req.session.id,
           item_id: req.body.item_id
       })
       console.log("Created Post");

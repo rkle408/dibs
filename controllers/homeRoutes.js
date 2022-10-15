@@ -16,7 +16,7 @@ router.get('/', withAuth, async(req, res) => {
         },
         {
           model: Item,
-          attributes: ['name', 'description']
+          attributes: ['name', 'description','giver_id']
         },
       ],
     });
@@ -85,7 +85,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Get all posts and JOIN with item and giver data
     const postData = await Post.findAll({
       where: {
-        giver_id: req.session.id
+        giver_id: req.session.user_id
       },
       include: [
         {
@@ -102,10 +102,10 @@ router.get('/profile', withAuth, async (req, res) => {
     // SELECT * FROM ITEM;
     const itemData = await Item.findAll({ 
       where: {
-        giver_id: req.session.id
+        giver_id: req.session.user_id
       },
     });
-    console.log(req.session.id)
+    console.log(req.session.user_id)
     const items = itemData.map((item) => item.get({ plain: true }));
     console.log(items);
 
