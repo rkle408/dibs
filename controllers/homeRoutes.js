@@ -31,7 +31,7 @@ router.get('/', withAuth, async(req, res) => {
     // }
     const items = itemData.map((item) => item.get({ plain: true }));
     
-    console.log(items);
+    // console.log(items);
 
 
     // Serialize data so the template can read it
@@ -80,18 +80,43 @@ router.get('/signup', (req, res) => {
 })
 
 router.get('/profile', withAuth, async (req, res) => {
+  console.log("hi");
   try {
-    // Find the logged in giver based on the session ID
-    const giverData = await Giver.findByPk(req.session.giver_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
+    // Get all posts and JOIN with item and giver data
+    const postData = await Post.findAll({
+      where: {
+        giver_id: req.session.id
+      },
+      include: [
+        {
+          model: Giver,
+          attributes: ['username', 'id'],
+        },
+        {
+          model: Item,
+          attributes: ['name', 'description', 'giver_id']
+        },
+      ],
     });
 
-    const giver = giverData.get({ plain: true });
+    // SELECT * FROM ITEM;
+    const itemData = await Item.findAll({ 
+      where: {
+        giver_id: req.session.id
+      },
+    });
+    console.log(req.session.id)
+    const items = itemData.map((item) => item.get({ plain: true }));
+    console.log(items);
 
-    res.render('profile', {
-      ...giver,
-      logged_in: true, 
+    // Serialize data so the template can read it
+    const posts = postData.map((post) => post.get({ plain: true }));
+    //console.log(posts);
+    // Pass serialized data and session flag into template
+    res.render('profile', { 
+      posts, 
+      items,
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
