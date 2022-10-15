@@ -7,8 +7,8 @@ router.post('/signup', async (req, res) => {
     try {
         const newUser = await Giver.create({
             username: req.body.username,
+            password: req.body.password,
             email: req.body.email,
-            password: req.body.password
             
         })
         console.log(req.body.username);
