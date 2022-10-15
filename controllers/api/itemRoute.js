@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
           name: req.body.name,
           // add image here!(:
           description: req.body.description,
-          // giver_id: req.session.user_id,
+          giver_id: req.session.user_id,
       })
       console.log(req.session.user_id)
       console.log("Created Item");
