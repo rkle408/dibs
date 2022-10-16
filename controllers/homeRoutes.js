@@ -22,13 +22,20 @@ router.get('/', withAuth, async(req, res) => {
     });
 
     // SELECT * FROM ITEM;
-    const itemData = await Item.findAll();
+    const itemData = await Item.findAll({
+      include: [
+        {
+          model: Giver,
+          attributes: ['username', 'email'],
+        },
+      ]
+    });
 
     // Sequelize accent not in JSON 
     // Sequelize => JSON  
     const items = itemData.map((item) => item.get({ plain: true }));
     
-    // console.log(items);
+    console.log(items);
 
 
     // Serialize data so the template can read it

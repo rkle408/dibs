@@ -7,7 +7,7 @@ document.addEventListener("click", async (event)=>{
 
   if (clicked.getAttribute("class")==="picked-up mt-auto"){
 
-      if(confirm("are you sure the item was picked up? proceeding will delete the item!")){
+      if(confirm("Are you sure the item was picked up? Proceeding will delete the item!")){
           const response = await fetch(`/api/item/${clicked.getAttribute("id")}`, {
           method: 'DELETE',
           body: JSON.stringify({
@@ -27,7 +27,7 @@ document.addEventListener("click", async (event)=>{
   }
 }else if (clicked.getAttribute("class")==="un-dib mt-auto"){
 
-  if(confirm("are you sure you want to put this item back in the market?")){
+  if(confirm("Are you sure you want to put this item back in the market?")){
       const response = await fetch(`/api/item/${clicked.getAttribute("id")}`, {
       method: 'PUT',
       body: JSON.stringify({

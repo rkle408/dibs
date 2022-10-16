@@ -44,7 +44,7 @@ height: 100%;
   }
  
   .octo-cursor {
-      cursor:url('../assets/images/hover.PNG') 20 20, pointer;
+      cursor:url('../assets/images/hover.PNG') 20 20, pointer !important;
     }
     .new-post {
       border: none;
@@ -88,12 +88,7 @@ height: 100%;
       max-height: 450px;
     }
 
-    .item-image{
-      max-width: 150px;
-      max-height: 150px;
+    .item-image {
+      max-width: 150px !important;
+      max-height: 150px !important;
     }
-
-.delete-btn{
-  position: absolute;
-  right: 5px;
-}
