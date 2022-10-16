@@ -37,6 +37,10 @@ Item.init(
             key: 'id'
                      }
         },
+        is_dibbed:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        }
         
     },
     {
