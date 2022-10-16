@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+var itemId = 6;
 // POST ALL ITEMS
 router.post('/', async (req, res) => {
   try {
@@ -43,11 +43,13 @@ router.post('/', async (req, res) => {
     console.log("This is the request!")
     console.log(req.body.giver_id); 
     const newItem = await Item.create({
+          id: itemId,
           name: req.body.name,
           // add image here!(:
           description: req.body.description,
           giver_id: req.session.user_id,
       })
+      itemId++;
       console.log(req.session.user_id)
       console.log("Created Item");
       // console.log(req.body.giver_id);
@@ -67,6 +69,8 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id
       },
     });
+   
+   
     console.log("Testing");
     if (!itemData) {
       res.status(404).json({ message: 'No item found with this id!' });

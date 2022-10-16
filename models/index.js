@@ -7,7 +7,7 @@ const Image = require('./Image');
 
 Giver.hasMany(Post, {
     foreignKey: 'giver_id',
-    onDelete: 'CASCADE'
+    
 })
 
 Post.belongsTo(Giver, {
@@ -16,7 +16,7 @@ Post.belongsTo(Giver, {
 
 Giver.hasMany(Item, {
     foreignKey: 'giver_id',
-    onDelete: 'CASCADE'
+    
 })
 
 Item.belongsTo(Giver, {
@@ -24,11 +24,11 @@ Item.belongsTo(Giver, {
 })
 Post.hasOne(Item,{
     foreignKey: 'item_id',
-    onDelete: 'SET NULL'
+    onDelete:'CASCADE'
 })
 Item.belongsTo(Post,{
     foreignKey: 'item_id',
-    onDelete: 'SET NULL'
+    
 })
 Item.hasOne(Image,{
     foreignKey: 'item_id',
@@ -36,7 +36,7 @@ Item.hasOne(Image,{
 })
 Image.belongsTo(Item,{
     foreignKey: 'item_id',
-    onDelete:'CASCADE'
+    
 })
 
 
