@@ -31,22 +31,6 @@ router.post('/:itemID', upload.single('file'), async (req, res) => {
 
     res.status(200).json(response);
 
-
-
-    // Image.create({
-    //   type: req.file.mimetype,
-    //   name: req.file.originalname,
-    //   img_url: fs.readFileSync(
-    //     __basedir + "/resources/static/assets/uploads/" + req.file.filename
-    //   ),
-    // }).then((image) => {
-    //   fs.writeFileSync(
-    //     __basedir + "/resources/static/assets/tmp/" + image.name,
-    //     image.data
-    //   );
-
-    //   return res.send(`File has been uploaded.`);
-    // });
   } catch (error) {
     console.log(error);
     return res.send(`Error when trying upload images: ${error}`);
