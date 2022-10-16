@@ -19,7 +19,7 @@ Post.init(
                      }
         },
         item_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             references: {
             model: 'Item',
             key: 'id'

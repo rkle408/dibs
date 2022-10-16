@@ -35,21 +35,19 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-var itemId = 6;
+
 // POST ALL ITEMS
 router.post('/', async (req, res) => {
   try {
-
-    console.log("This is the request!")
-    console.log(req.body.giver_id); 
+    
     const newItem = await Item.create({
-          id: itemId,
+          id: req.body.id,
           name: req.body.name,
-          // add image here!(:
+          
           description: req.body.description,
           giver_id: req.session.user_id,
       })
-      itemId++;
+      
       console.log(req.session.user_id)
       console.log("Created Item");
       // console.log(req.body.giver_id);
