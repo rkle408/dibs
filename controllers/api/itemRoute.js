@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { request } = require('express');
 const { Item } = require('../../models');
 
 // GET ITEM
@@ -80,5 +81,29 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.put('/:id', (req, res) => {
+
+  Item.update(
+    {
+      is_dibbed: req.body.is_dibbed
+    },
+    {
+      
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((updatedItem) => {
+      res.json(updatedItem);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json(err);
+    });
+});
+
+
 
 module.exports = router;
