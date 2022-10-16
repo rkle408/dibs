@@ -1,34 +1,70 @@
 {{#if logged_in}}
 	<div class="container-fluid profile-style">
-		<div class="username">
-			<p>
-				Username
-			</p>
+    {{#each givers as |giver|}}
+    <div class="username">
+			<h1 class="profile-username">
+        {{giver.username}}
+      </h1>
 		</div>
+    {{/each}}
 		<div class="post-number">
-			<p>
-				Posts: 7
-			</p>
+			<h3>
+        Posts: {{items.length}}
+      </h3>
 		</div>
 	</div>
 <div class = "new-post-container container-fluid">
-      <button type="button" class="new-post btn btn-primary btn-lg ">Post new item&nbsp;&nbsp;&nbsp;<img src = "/assets/images/plus-sign.PNG"></button>
+      <button type="button" class="new-post btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Post new item&nbsp;&nbsp;&nbsp;<img src = "/assets/images/plus-sign.PNG"></button>
 </div>
 
-<div class="container text-center">
-  <div class="row" style="margin-top: 30px;">
-  {{#each items as |item| }}
-    <div class="col-sm-4">
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title"> {{item.name}}</h5>
-            <img src={{item.image_url}} class="card-img-top" alt="...">
-            <p class="card-text"> {{item.description}}</p>
-            <button class="octo-cursor" style="border:none; background-color: rgba(0, 0, 0, 0);"><img class="octo-cursor" src="/assets/images/dibs.PNG" width="87px" height="40px"></button>
+ <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Post a New Item</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="POST" id="submitNewPost">
+            <div>
+                <label for="item-name">Name of Item:</label>
+                <input class='modal-max-width' id="item-name" type="text">
+            </div>
+            <div class="d-flex align-item-center">
+                <label class="pr-2" for="item-descr">Description:&nbsp;&nbsp;</label>
+                <textarea class='modal-max-width' name="item-descr" id="item-descr"></textarea>
+            </div>
+            <div>
+              <label class="form-label" for="image-upload">Please Upload a Picture of the Item</label>
+              <input type="file" class="form-control" id="image-upload" />  
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id='modal-close-btn' class="btn btn-secondary mr-2" data-bs-dismiss="modal">Close</button>
+          <button id='new-post-submit' type="submit" class="btn btn-success">Submit</button>
         </div>
       </div>
     </div>
-  {{/each}}
+  </div>
+
+  <div class="container text-center">
+    <div class="row" style="margin-top: 30px;">
+      {{#each items as |item| }}
+      <div class="col-sm-4">
+        <div class="card mb-3 standard-size">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"> {{item.name}}</h5>
+            {{!-- DELETE BUTTON  --}}
+            <button type="button" id='delete-btn' class="btn-close delete-btn"></button>
+            <img src={{item.image_url}} class="card-img-top item-image align-self-center" alt="item image">
+            <p class="card-text mt-3 overflow-auto"> {{item.description}}</p>
+            <button class="octo-cursor mt-auto" style="border:none; background-color: rgba(0, 0, 0, 0);"><img class="octo-cursor" src="/assets/images/dibs.PNG" width="87px" height="40px"></button>
+          </div>
+        </div>
+      </div>
+        {{/each}}
   </div>
 </div>
 
@@ -37,3 +73,6 @@
     crossorigin="anonymous"></script>
 
 {{/if}}
+
+<script src="/js/newItem.js"></script>
+<script src="/js/profile.js"></script>

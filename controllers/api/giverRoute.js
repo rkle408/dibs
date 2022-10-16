@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Giver } = require('../../models');
 const bcrypt = require('bcrypt')
+const withAuth = require('../../utils/auth');
 
 // CREATE NEW USER
 router.post('/signup', async (req, res) => {
@@ -62,7 +63,7 @@ router.post('/login', async (req, res) => {
         return;
       }
       console.log("this is the user that logged in")
-      console.log(userData.id)
+      console.log(userData)
       req.session.save(() => {
         req.session.username = userData.username;
         req.session.user_id = userData.id;
