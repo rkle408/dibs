@@ -6,12 +6,14 @@ const newItemHandler = async (event) => {
   const itemDescription = document.querySelector('#item-descr').value.trim();
   const itemImage = document.querySelector('#image-upload')
   // alert("hi")
+  let itemId = (Date.now()+itemName.trim()+itemDescription.slice(0,5)).replace(/\s+/g, '');
+
  
   
 
   const response = await fetch('/api/item', {
     method: 'POST',
-    body: JSON.stringify({ name: itemName, description: itemDescription }),
+    body: JSON.stringify({ id: itemId, name: itemName, description: itemDescription }),
     headers: { 'Content-Type': 'application/json' },
   });
   console.log(response);
@@ -26,20 +28,22 @@ const newItemHandler = async (event) => {
     console.log(items[items.length-1].id)
     return items[items.length-1].id;
   }
- var itemCount = await fetchItems();
+ var nextId = await fetchItems();
 
   // console.log("This is the number of items")
   // fetchItems().then(function (result){
   //   console.log(result)
   //   itemCount=result
   // });
-  console.log(itemCount);
+  console.log("nextId");
+
+  console.log(nextId);
   // console.log(event.target.files); 
   console.log(itemName, itemDescription);
   console.log(itemImage.files[0])
   let formData = new FormData();
   formData.append('file',itemImage.files[0]);
-  const response2 = await fetch(`/upload/${itemCount}`, {
+  const response2 = await fetch(`/upload/${nextId}`, {
     method: 'POST',
     body: formData
   });

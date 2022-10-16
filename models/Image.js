@@ -10,7 +10,7 @@ Image.init(
             type: DataTypes.STRING,
           },
           item_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             references: {
                 model: 'Item',
                 key: 'id'

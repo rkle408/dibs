@@ -16,16 +16,16 @@ const seedDatabase = async () => {
   });
 
   // bulk create item constant
-  const item = await Item.bulkCreate(itemData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // const item = await Item.bulkCreate(itemData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
 
   // bulk create post
-  const post = await Post.bulkCreate(postData, {
-    individualHooks: true,
-    returning: true,
-  });
+  // const post = await Post.bulkCreate(postData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
 
   process.exit(0);
 };
