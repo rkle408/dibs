@@ -44,8 +44,11 @@
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"> {{item.name}}</h5>
             <img src={{item.image_url}} class="card-img-top item-image align-self-center" alt="item image">
-            <p class="card-text mt-3 overflow-auto"> {{item.description}}</p>
+            <p class="card-text mt-3 overflow-auto"> 
+              {{item.description}} 
+            </p>
             <button id={{item.id}} {{#if item.is_dibbed}}disabled{{/if}} class="octo-cursor mt-auto" style="background-color: #5c53d430; border:2px solid #5c53d4da; padding:5px 10px; border-radius: 0.375rem;">DIBS</button>
+            <div>Contact Info: <a href="mailto:{{item.Giver.email}}">{{item.Giver.email}}</a></div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ document.addEventListener("click", async (event)=>{
   
     if (clicked.getAttribute("class")==="octo-cursor mt-auto"){
   
-        if(confirm("are you sure you want this item? you have one hour to pick it up!")){
+        if(confirm("Are you sure you want dibs on this item?")){
             const response = await fetch(`/api/item/${clicked.getAttribute("id")}`, {
             method: 'PUT',
             body: JSON.stringify({

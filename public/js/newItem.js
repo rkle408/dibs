@@ -48,10 +48,10 @@ const newItemHandler = async (event) => {
     body: formData
   });
   
-  console.log("hit second response")
+  // console.log("hit second response")
 
   // This will allow window to automatically refresh when we post new item
-  // window.location.reload();
+  window.location.reload();
 }
 
 document.getElementById('new-post-submit')
