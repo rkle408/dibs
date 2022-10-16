@@ -23,12 +23,9 @@ router.get('/', withAuth, async(req, res) => {
 
     // SELECT * FROM ITEM;
     const itemData = await Item.findAll();
+
     // Sequelize accent not in JSON 
     // Sequelize => JSON  
-    // items = []
-    // for(let index = 0; index < itemData.length; index++){
-    //   items.push(itemData[index].get({ plain: tr}))
-    // }
     const items = itemData.map((item) => item.get({ plain: true }));
     
     // console.log(items);
@@ -36,7 +33,7 @@ router.get('/', withAuth, async(req, res) => {
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
-    //console.log(posts);
+    // console.log(posts);
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       posts, 
@@ -80,24 +77,18 @@ router.get('/signup', (req, res) => {
 })
 
 router.get('/profile', withAuth, async (req, res) => {
-  console.log("hi");
   try {
-    // Get all posts and JOIN with item and giver data
-    const postData = await Post.findAll({
+    // Get giver username based on giver that is logged in
+    const giverData = await Giver.findAll({
       where: {
-        giver_id: req.session.user_id
+        username: req.session.username
       },
-      include: [
-        {
-          model: Giver,
-          attributes: ['username', 'id'],
-        },
-        {
-          model: Item,
-          attributes: ['name', 'description', 'giver_id']
-        },
-      ],
+      attributes: ['username', 'id']
     });
+
+    // Serialize data so the template can read it
+    const givers = giverData.map((giver) => giver.get({ plain: true }));
+    // console.log(givers);
 
     // SELECT * FROM ITEM;
     const itemData = await Item.findAll({ 
@@ -105,16 +96,15 @@ router.get('/profile', withAuth, async (req, res) => {
         giver_id: req.session.user_id
       },
     });
-    console.log(req.session.user_id)
+    // console.log(req.session.user_id)
     const items = itemData.map((item) => item.get({ plain: true }));
-    console.log(items);
+    console.log(items.length);
 
-    // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
-    //console.log(posts);
+    
+  
     // Pass serialized data and session flag into template
     res.render('profile', { 
-      posts, 
+      givers, 
       items,
       logged_in: req.session.logged_in 
     });
@@ -122,7 +112,6 @@ router.get('/profile', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 
 

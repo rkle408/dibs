@@ -82,3 +82,18 @@ height: 100%;
     #item-descr {
       border-radius: 5px;
     }
+
+    .standard-size {
+      min-height: 350px;
+      max-height: 450px;
+    }
+
+    .item-image{
+      max-width: 150px;
+      max-height: 150px;
+    }
+
+.delete-btn{
+  position: absolute;
+  right: 5px;
+}
