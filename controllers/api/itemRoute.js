@@ -6,8 +6,8 @@ router.get('/', async (req, res) => {
   console.log('Hello');
   try {
       const findAll = await Item.findAll()
-      console.log("Test");
-      console.log(findAll);
+      // console.log("Test");
+      // console.log(findAll);
       res.status(200).json(findAll);
   } catch (err) {
       console.log(err)
