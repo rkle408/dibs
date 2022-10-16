@@ -31,13 +31,25 @@ Ideas for future development include making a trade feature vs. just individuall
 
 -[Features](#features)
 
+-[Tests](#tests)
+
+-[Technology-Stack](#technology-stack)
+
 ## Installation
+
+If you do see our package.json in your folder, in the Integrated Terminal at the level of the package.json, run the command:
 ````
-npm i bcrypt body-parser connect-session-sequelize dotenv express express-handlebars express-session jest mysql2 sequelize
+npm i
+````
+
+However, if you do not see it, please make sure you install the following packages in the Integrated Terminal:
+
+````
+npm i bcrypt body-parser connect-session-sequelize dotenv express express-handlebars express-session jest morgan multer mysql2 sequelize
 ````
 ## Usage
 
-You will possibly need to add your own MySQL password in to initiate MySQL in a .env file:
+You will need to create a .env file add your own MySQL password in to initiate MySQL in this format:
 ````
 DB_NAME='dibs_db'
 DB_USER='*YOUR USERNAME*'
@@ -79,6 +91,7 @@ node server.js
 
 ## Resources
 
+- Hoang, Andrew. Instructor. Guidance given during class. Date accessed: October 13-15, 2022.
 - Scharf, Michael. Teaching assistant. Guidance given during class time. October 10-14, 2022.
 - <b>Bootstrap</b>. <https://getbootstrap.com/>. Date accessed: October 11, 2022.
 - <b>MDBGO</b>. <https://mdbootstrap.com/docs/standard/extended/login/>. Date accessed: October 11, 2022.
@@ -113,3 +126,7 @@ npm run test
 ````
 
 You should see green "passed" tests. If you alter the password lengths in the Giver.test.js file or erase a username, password, or email, then run the test, you will see that it will fail.
+
+## Technology Stack
+
+This project was built using [Node v16.17.0].
