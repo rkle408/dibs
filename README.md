@@ -55,7 +55,7 @@ npm i
 npm init --yes
 ````
 ````
-npm i bcrypt body-parser connect-session-sequelize dotenv express express-handlebars express-session jest morgan multer mysql2 sequelize
+npm i bcrypt connect-session-sequelize dotenv express express-handlebars express-session jest morgan multer mysql2 sequelize
 ````
 
 ## Usage
@@ -80,10 +80,6 @@ quit
 ````
 
 Open Integrated Terminal at server.js level, run command:
-````
-node seeds/seed.js
-````
-Then:
 ````
 node server.js
 ````
