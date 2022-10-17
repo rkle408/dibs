@@ -132,7 +132,9 @@ node server.js
 
 - Hoang, Andrew. Instructor. Guidance given during class. Date accessed: October 13-15, 2022.
 - Scharf, Michael. Teaching assistant. Guidance given during class time. October 10-14, 2022.
-- "How to write a detailed README File." <b>Carimus</b>. <https://carimus.com/news/how-to-write-a-detailed-readme-file>. Date accessed: October 16, 2022.
+- "Associations" <b>Sequelize</b>. <https://sequelize.org/docs/v6/core-concepts/assocs/>. Date accessed: October 13, 2022.
+- "How to write a detailed README File" <b>Carimus</b>. <https://carimus.com/news/how-to-write-a-detailed-readme-file>. Date accessed: October 16, 2022.
+- "Upload/store images in MySQL using Node.js, Express & Multer" <b>BezKoder</b>. <https://www.bezkoder.com/node-js-upload-image-mysql/>. Date accessed: October 13, 2022.
 - <b>Bootstrap</b>. <https://getbootstrap.com/>. Date accessed: October 11, 2022.
 - <b>MDBGO</b>. <https://mdbootstrap.com/docs/standard/extended/login/>. Date accessed: October 11, 2022.
 - <b>npm</b>. <https://www.npmjs.com/>. Date accessed: October 11, 2022.
