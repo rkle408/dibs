@@ -4,7 +4,7 @@ const { Item } = require('../../models');
 
 // GET ITEM
 router.get('/', async (req, res) => {
-  console.log('Hello');
+  // console.log('Hello');
   try {
       const findAll = await Item.findAll()
       // console.log("Test");
@@ -19,13 +19,13 @@ router.get('/', async (req, res) => {
 // FIND ONE ITEM
 router.get('/:id', async (req, res) => {
   try {
-    console.log("Test");
+    // console.log("Test");
     const itemData = await Item.findOne({
       where: {
         id: req.params.id
       },
     });
-    console.log("Testing");
+    // console.log("Testing");
     if (!itemData) {
       res.status(404).json({ message: 'No item found with this id!' });
       return;
@@ -49,8 +49,8 @@ router.post('/', async (req, res) => {
           giver_id: req.session.user_id,
       })
       
-      console.log(req.session.user_id)
-      console.log("Created Item");
+      // console.log(req.session.user_id)
+      // console.log("Created Item");
       // console.log(req.body.giver_id);
 
       res.status(200).json(newItem);
@@ -62,15 +62,14 @@ router.post('/', async (req, res) => {
 // DELETE ITEM
 router.delete('/:id', async (req, res) => {
   try {
-    console.log("Test");
+    // console.log("Test");
     const itemData = await Item.destroy({
       where: {
         id: req.params.id
       },
     });
    
-   
-    console.log("Testing");
+    // console.log("Testing");
     if (!itemData) {
       res.status(404).json({ message: 'No item found with this id!' });
       return;
@@ -86,6 +85,7 @@ router.put('/:id', (req, res) => {
 
   Item.update(
     {
+      // Updates an item if it is claimed as dibbed
       is_dibbed: req.body.is_dibbed
     },
     {
@@ -103,7 +103,5 @@ router.put('/:id', (req, res) => {
       res.json(err);
     });
 });
-
-
 
 module.exports = router;
