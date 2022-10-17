@@ -160,7 +160,7 @@ Our application will allow you to make a username and password, and that will al
 
 ## Tests
 
-To ensure our application is functioning, we wrote a test to ensure that credentials for our "Giver" cannot be left blank, i.e., username, email, password MUST have values. Our test also ensures that the password length is at minimum, 4 characters long.
+To ensure our application is functioning, we wrote a test to ensure that credentials for our "Giver" and "Item" cannot be left blank, (i.e., username, email, password MUST have values). Our test also ensures that the password length is at minimum, 4 characters long.
 
 To run this test, ensure you have installed Jest as previously mentioned in [Installation](#installation), open Integrated Terminal at server.js level, and run command:
 ````
