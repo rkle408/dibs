@@ -3,7 +3,7 @@ const { Giver, Post, Item } = require('../models');
 const withAuth = require('../utils/auth');
 const path = require("path");
 
-
+// Need to be authenticated/signed in to view homepage
 router.get('/', withAuth, async(req, res) => { 
   console.log("hi");
   try {
@@ -32,7 +32,7 @@ router.get('/', withAuth, async(req, res) => {
     });
 
     // Sequelize accent not in JSON 
-    // Sequelize => JSON  
+    // Translate Sequelize into JSON  
     const items = itemData.map((item) => item.get({ plain: true }));
     
     console.log(items);
@@ -52,7 +52,7 @@ router.get('/', withAuth, async(req, res) => {
   }
 });
 
-// GETTING LOGIN PAGE
+// Getting Login Page
 router.get('/login', (req, res) => {
   // If the giver is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -60,9 +60,11 @@ router.get('/login', (req, res) => {
     return;
   }
 
+  // If you're not logged in, you will be directed to the login page
   res.render('loginpage');
 });
 
+// When you get to the logout page, it will just redirect you to the login again
 router.get('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -73,7 +75,7 @@ router.get('/logout', (req, res) => {
   }
 });
 
-// GETTING SIGNUP PAGE
+// Getting Signup Page
 router.get('/signup', (req, res) => {
   if(req.session.logged_in) {
       res.redirect('/');
@@ -83,6 +85,7 @@ router.get('/signup', (req, res) => {
   }
 })
 
+// Need to be authenticated to be able to see your own profile
 router.get('/profile', withAuth, async (req, res) => {
   try {
     // Get giver username based on giver that is logged in
@@ -119,7 +122,5 @@ router.get('/profile', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
 
 module.exports = router;

@@ -13,7 +13,8 @@ test('Checks for null values', async () => {
   
     const newUser1 = Giver.build(user1);
     const newUser2 = Giver.build(user2);
-  
+    
+    // We want newUser1 to fail and newUser2 to pass, if both conditions happen, then the test is sucessful in checking that our application/code is correct!
     await expect(newUser1.validate()).rejects.toThrow('notNull');
     await expect(newUser2.validate()).resolves.not.toThrow();
   });

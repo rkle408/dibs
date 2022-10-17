@@ -148,7 +148,7 @@ This project is licensed under the terms of the MIT license.
 
 ## Walkthrough Video
 
-<>
+<https://watch.screencastify.com/v/XxbEeWag16rR9IUenaye>
 
 ## Deploy Application
 
