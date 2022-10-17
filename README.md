@@ -101,8 +101,8 @@ node server.js
 5) Posting an item:
 ![screencapture5](https://user-images.githubusercontent.com/108099192/196065715-1f446334-1b50-4bd8-88f6-24d8074e3824.png)
 
-6) Posted item:
-![screencapture6](https://user-images.githubusercontent.com/108099192/196065700-000807d5-2190-4129-bcef-6610c3765b5a.png)
+6) Posted item (note: there is no DIBS called, so you do not see contact info):
+![screencapture6](https://user-images.githubusercontent.com/108099192/196092410-84b2d409-7053-441e-a0e1-5e49f8392539.png)
 
 7) User's own profile with posted items:
 ![screencapture7](https://user-images.githubusercontent.com/108099192/196065692-061b4b6c-fdcf-4234-87e4-4c81af71a485.png)
@@ -116,8 +116,8 @@ node server.js
 10) Different user's post:
 ![screencapture10](https://user-images.githubusercontent.com/108099192/196066189-43369575-dacb-408d-bae0-b9afe9e2f82a.png)
 
-11) Homepage comprised of all posted items from different users:
-![screencapture11](https://user-images.githubusercontent.com/108099192/196066191-2ad09c0f-a720-4457-8407-02a19c176bb5.png)
+11) Homepage comprised of all posted items from different users (note: Can only see user contact info if you called DIBS):
+![screencapture11](https://user-images.githubusercontent.com/108099192/196092417-27c1c078-ac07-4f23-880c-f85e5275659c.png)
 
 
 ## Collaborators
