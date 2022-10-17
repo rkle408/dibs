@@ -1,4 +1,17 @@
 {{#if logged_in}}
+	<!--
+  <div class="container-fluid profile-style">
+    <div>
+			<h1>
+        Welcome to the marketplace!
+      </h1><br>
+			<h2>
+        Feel free to browse around.<br>
+        When you find an item you like, hit the DIBS button, and email the generous giver!
+      </h2>
+		</div>
+	</div>
+  -->
 <div class = "new-post-container container-fluid">
       <button type="button" class="new-post btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Post new item&nbsp;&nbsp;&nbsp;<img src = "/assets/images/plus-sign.PNG"></button>
 </div>
@@ -52,10 +65,9 @@
           </div>
         </div>
       </div>
-        {{/each}}
+      {{/each}}
+    </div>
   </div>
-</div>
-
 
 <script src="/js/newItem.js"></script>
 <script src="/js/dibs.js"></script>
