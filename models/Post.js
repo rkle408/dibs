@@ -9,30 +9,30 @@ Post.init(
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         giver_id: {
             type: DataTypes.INTEGER,
             references: {
-            model: 'Giver',
-            key: 'id'
-                     }
+                model: 'Giver',
+                key: 'id',
+            },
         },
         item_id: {
             type: DataTypes.STRING,
             references: {
-            model: 'Item',
-            key: 'id'
-                     }
-        }
+                model: 'Item',
+                key: 'id',
+            },
+        },
     },
     {
-    sequelize,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'Post'     
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'Post'     
     }
-)
+);
 
 module.exports = Post;
 

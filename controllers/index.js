@@ -1,3 +1,5 @@
+// Start of controllers, which allows commands to Model and View components
+
 const router = require('express').Router();
 
 const apiRoutes = require('./api');

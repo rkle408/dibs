@@ -148,7 +148,7 @@ This project is licensed under the terms of the MIT license.
 
 ## Walkthrough Video
 
-<>
+<https://watch.screencastify.com/v/XxbEeWag16rR9IUenaye>
 
 ## Deploy Application
 
@@ -156,11 +156,11 @@ This project is licensed under the terms of the MIT license.
 
 ## Features
 
-Our application will allow you to make a username and password, and that will allow you access to be a "giver" and a "taker." As a giver, you can make posts to feature your items to give away, and as a taker, you can view posts and call dibs on up to 8 items at a time.
+Our application will allow you to make a username and password, and that will allow you access to be a "giver" and a "taker." As a giver, you can make posts to feature your items to give away, and as a taker, you can view posts and call dibs on items you want. You can also undo someone's DIBS to put it on the market place again (usually if they do not pick it up). Once it is picked up, you will be able to delete your post.
 
 ## Tests
 
-To ensure our application is functioning, we wrote a test to ensure that credentials for our "Giver" cannot be left blank, i.e., username, email, password MUST have values. Our test also ensures that the password length is at minimum, 4 characters long.
+To ensure our application is functioning, we wrote a test to ensure that credentials for our "Giver" and "Item" cannot be left blank, (i.e., username, email, password MUST have values). Our test also ensures that the password length is at minimum, 4 characters long.
 
 To run this test, ensure you have installed Jest as previously mentioned in [Installation](#installation), open Integrated Terminal at server.js level, and run command:
 ````

@@ -1,3 +1,4 @@
+// Code using multer npm package to store photos to our public folder
 const router = require('express').Router();
 const fs = require("fs");
 const { Item } = require("../models");
@@ -15,6 +16,7 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage: storage })
 
+// Create new photo file
 router.post('/:itemID', upload.single('file'), async (req, res) => {
   console.log(upload)
   try {

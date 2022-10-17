@@ -1,3 +1,5 @@
+// Filter to make sure only images are being uploaded
+
 const multer = require("multer");
 
 const imageFilter = (req, file, cb) => {

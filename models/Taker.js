@@ -24,21 +24,20 @@ Taker.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [4]
-            }
+                len: [4],
+            },
         },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 isEmail: true
-            }
+            },
         },
     },
     {
         hooks: {
             beforeCreate: async(newUserData) => {
-                //newUserData.username = newUserData.username.toLowerCase()
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
             }, 
@@ -53,6 +52,6 @@ Taker.init(
         underscored: true, 
         modelName: 'Taker'       
     }
-)
+);
 
 module.exports = Taker;
